@@ -93,45 +93,38 @@ header h1 {
     background-color: #e5006e; /* Tono más oscuro */
 }
 
-/* Estilos de los productos */
+/* Ajustar tamaño de las tarjetas de producto */
 .product-card {
-    background-color: #1f1f1f; /* Fondo oscuro para cada producto */
-    border: 1px solid #444; /* Borde sutil */
+    background-color: #333;
+    border: 1px solid #444;
     border-radius: 8px;
-    padding: 15px;
+    padding: 10px; /* Reducido */
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.product-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 250px; /* Tamaño máximo más pequeño */
+    margin: 0 auto;
 }
 
 .product-card img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Se adapta al tamaño del contenedor */
+    height: auto; /* Mantiene la proporción */
     border-radius: 8px;
     transition: transform 0.3s;
 }
 
-.product-card img:hover {
-    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
-}
-
+/* Ajustes para los textos */
 .product-card h5 {
-    margin-top: 15px;
-    font-size: 1.2rem;
-    color: #fff;
+    font-size: 1rem; /* Tamaño más pequeño */
+    margin: 10px 0; /* Reducido */
 }
 
 .product-card .price {
-    font-size: 1.5rem;
-    color: #ff4081; /* Color de acento */
-    margin-top: 10px;
-    font-weight: bold;
+    font-size: 1.2rem; /* Más compacto */
+    margin: 5px 0; /* Reducido */
 }
 
+/* Botones: Sin cambios en los colores */
 .product-card button {
     background-color: #ff4081;
     color: white;
@@ -142,18 +135,47 @@ header h1 {
     margin-top: 10px;
     cursor: pointer;
 }
-
 .product-card button:hover {
     background-color: #e5006e;
 }
 
-.product-card .btn-success {
-    background-color: #ff4081;
+/* Reducción de márgenes entre columnas */
+.row {
+    gap: 15px; /* Más compacto */
+    justify-content: center;
 }
 
-.product-card .btn-success:hover {
-    background-color: #e5006e;
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 45%; /* Mejor uso del espacio */
+        max-width: 45%;
+    }
 }
+
+@media (max-width: 576px) {
+    .col-md-4 {
+        flex: 0 0 90%; /* Ocupa casi todo el ancho en móviles */
+        max-width: 90%;
+    }
+}
+
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 45%; /* Mejor uso del espacio */
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-4 {
+        flex: 0 0 90%; /* Ocupa casi todo el ancho en móviles */
+        max-width: 90%;
+    }
+}
+
 
 /* Estilos para la sección de productos */
 .section-title {
@@ -190,19 +212,23 @@ header h1 {
     }
 }
 .cart-close {
+    padding: 5px; /* Ajusta el padding si es necesario */
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
+    top: 5px;
+    right: 5px;
+    font-size: 0.7rem; /* Tamaño más pequeño para la X */
     color: #fff;
     cursor: pointer;
     background: none;
     border: none;
+    width: 20px;
 }
 
 .cart-close:hover {
     color: #ff4081; /* Color de acento */
 }
+
+
 
 
     </style>
@@ -214,30 +240,23 @@ header h1 {
         </div>
     </header>
 
-    <!-- Icono del carrito -->
-    <div class="cart-icon" onclick="toggleCart()">
-        🛒 <span id="cart-count">0</span>
+ <!-- Icono del carrito -->
+ <div class="cart-icon" onclick="toggleCart()">
+    🛒 <span id="cart-count">0</span>
+</div>
+
+<!-- Contenedor del carrito -->
+<div class="cart-container" id="cart">
+    <button class="cart-close" onclick="toggleCart()">&times;</button>
+    <h5>Carrito de Compras</h5>
+    <div id="cart-items">
+        <p>Tu carrito está vacío.</p>
     </div>
-
-
-
-
-
-
-
-
-    
-    <!-- Contenedor del carrito -->
-    <div class="cart-container" id="cart">
-        <h5>Carrito de Compras</h5>
-        <div id="cart-items">
-            <p>Tu carrito está vacío.</p>
-        </div>
-        <div class="cart-total">
-            Total: $<span id="cart-total">0.00</span>
-        </div>
-        <button class="btn btn-success w-100 mt-3" onclick="proceedToCheckout()">Finalizar Compra</button>
+    <div class="cart-total">
+        Total: $<span id="cart-total">0.00</span>
     </div>
+    <button class="btn btn-success w-100 mt-3" onclick="proceedToCheckout()">Finalizar Compra</button>
+</div>
 
     <main class="container my-4">
         <!-- Sección Salud -->
@@ -260,7 +279,6 @@ header h1 {
                     <div class="product-card">
                         <img src="https://i.postimg.cc/BZkGdnLT/Mini-masajeador.png" alt="Masajeador Electrico">
                         <h5>Mini masajeador</h5>
-                        <p>Masajeador Tens</p>
                         <div class="price">$35.000</div>
                         <button class="btn" onclick="addToCart('Mini masajeador', 35000)">Añadir al carrito</button>
                         <button class="btn btn-success mt-2" onclick="buyNow('Mini masajeador', 35000)">Comprar ahora</button>
@@ -386,6 +404,21 @@ function proceedToCheckout() {
 }
 
 renderCart(); // Inicializa el carrito
+
+
+
+
+
+
+// Seleccionar el botón de cerrar y el contenedor del carrito
+const closeCartButton = document.querySelector('.cart-close');
+const shoppingCart = document.getElementById('shopping-cart');
+
+// Evento para cerrar el carrito cuando se haga clic en la "X"
+closeCartButton.addEventListener('click', () => {
+    shoppingCart.style.display = 'none'; // Oculta el carrito
+});
+
     </script>
 </body>
 </html>
