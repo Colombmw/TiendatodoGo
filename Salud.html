@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TiendatodoGo</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script src="./script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<nav>
+		<ul>
+		  <li><a href="index.html">Inicio</a></li>
+		  <li><a href="Salud.html">Salud</a></li>
+		  <li><a href="tecnologia.html">Tecnologia</a></li>
+          <li><a href="belleza.html">Belleza</a></li>
+		  <li><a href="reviews.html">Opiniones</a></li>
+		</ul>
+	  </nav>
+</head>
+<body>
+	<header class="py-4">
+		<div class="container text-center">
+			<h1>TiendatodoGo</h1>
+		</div>
+		<a href="index.html">
+			<img src="https://i.postimg.cc/D0bcNTmg/tienda-todo-go.png" alt="Logo" class="logo">
+		</a>
+		<a href="https://www.tiktok.com/@tiendatodogo?_t=ZS-8tCRC47GwwZ&_r=1" target="_blank" class="social-icon tiktok" aria-label="TikTok">
+			<i class="fab fa-tiktok"></i>
+		  </a>
+		  <a href="https://www.instagram.com/tiendatodog.col" target="_blank" class="social-icon instagram" aria-label="Instagram">
+			<i class="fab fa-instagram"></i>
+		  </a>
+	</header>
+	
+	
+
+	<!-- Icono del carrito -->
+	<div class="cart-icon" onclick="toggleCart()">
+		🛒 <span id="cart-count">0</span>
+	</div>
+
+	<!-- Contenedor del carrito -->
+	<div class="cart-container" id="cart">
+		<button class="cart-close" onclick="toggleCart()">&times;</button>
+		<h5>Carrito de Compras</h5>
+		<div id="cart-items">
+			<p>Tu carrito está vacío.</p>
+		</div>
+		<div class="cart-total">
+			Total: $<span id="cart-total">0.00</span>
+		</div>
+		<button class="btn btn-success w-100 mt-3" onclick="proceedToCheckout()">Finalizar Compra</button>
+	</div>
+
+
+	 <!-- Buscador -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar productos..." onkeyup="searchFunction()">
+    </div>
+
+	<main class="container my-4">
+			<div class="row g-4" id="productList">
+				<!-- Producto Creatina Monohidratada -->
+				<div class="col-md-4 product-card" data-name="Creatina Monohidratada">
+					<div>
+						<img src="https://i.postimg.cc/zvX36XyZ/producto-Creatina-mono1.jpg" alt="Creatina Monohidratada">
+						<h5>Creatina Monohidratada</h5>
+						<div class="price">$107.000</div>
+						<button class="btn" onclick="addToCart('Creatina Monohidratada', 107000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Creatina Monohidratada', 107000)">Comprar ahora</button>
+					</div>
+				</div>
+	
+				<!-- Producto Mini masajeador -->
+				<div class="col-md-4 product-card" data-name="Mini masajeador">
+					<div>
+						<img src="https://i.postimg.cc/BZkGdnLT/Mini-masajeador.png" alt="Masajeador Electrico">
+						<h5>Mini masajeador</h5>
+						<div class="price">$35.000</div>
+						<button class="btn" onclick="addToCart('Mini masajeador', 35000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Mini masajeador', 35000)">Comprar ahora</button>
+					</div>
+				</div>
+	
+				<!-- Producto Tabla Push Up Sistema Flexiones Ejercicio -->
+				<div class="col-md-4 product-card" data-name="Tabla Push Up Sistema Flexiones Ejercicio">
+					<div>
+						<img src="https://i.postimg.cc/q75M7VMy/Tabla-Push-Up.webp" alt="Tabla Push Up Sistema Flexiones Ejercicio">
+						<h5>Tabla Push Up Sistema Flexiones Ejercicio</h5>
+						<div class="price">$69.900</div>
+						<button class="btn" onclick="addToCart('Tabla Push Up Sistema Flexiones Ejercicio', 69900)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Tabla Push Up Sistema Flexiones Ejercicio', 69900)">Comprar ahora</button>
+					</div>
+				</div>
+
+				
+				<div class="col-md-4 product-card" data-name="Kit Mancuernas Pesas 50kg">
+					<div>
+						<img src="https://i.postimg.cc/7ZLjBCwM/Kit-Mancuernas-Pesas-50kg.png" alt="Kit Mancuernas Pesas 50kg">	
+						<h5>Kit Mancuernas Pesas 50kg</h5>
+						<div class="price">$420.000</div>
+						<button class="btn" onclick="addToCart('Kit Mancuernas Pesas 50kg', 420000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Kit Mancuernas Pesas 50kg', 420000)">Comprar ahora</button>
+					</div>
+				</div>
+
+
+				<div class="col-md-4 product-card" data-name="Muñequeras Vendas Straps 8924">
+					<div>
+						<img src="https://i.postimg.cc/cJwhTZgB/Munequeras-Vendas-Straps-8924.jpg" alt="Muñequeras Vendas Straps 8924">	
+						<h5>Muñequeras Vendas Straps 8924</h5>
+						<div class="price">$50.000</div>
+						<button class="btn" onclick="addToCart('Muñequeras Vendas Straps 8924', 50000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Muñequeras Vendas Straps 8924', 50000)">Comprar ahora</button>
+					</div>
+				</div>
+
+				<div class="col-md-4 product-card" data-name="Tn Super Mega Gainer Proteina">
+					<div>
+						<img src="https://i.postimg.cc/NGp4ddMS/Tn-Super-Mega-Gainer-Proteina.jpg" alt="Tn Super Mega Gainer Proteina">
+					<h5>Tn Super Mega Gainer Proteina</h5>
+					<div class="price">$100.000</div>
+						<button class="btn" onclick="addToCart('Tn Super Mega Gainer Proteina', 100000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Tn Super Mega Gainer Proteina', 100000)">Comprar ahora</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+    <footer>
+        <p>&copy; 2025 TiendatodoGo</p>
+      </footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

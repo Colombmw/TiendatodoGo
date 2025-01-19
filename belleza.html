@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TiendatodoGo</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script src="./script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<nav>
+		<ul>
+		  <li><a href="index.html">Inicio</a></li>
+		  <li><a href="Salud.html">Salud</a></li>
+		  <li><a href="tecnologia.html">Tecnologia</a></li>
+		  <li><a href="belleza.html">Belleza</a></li>
+		  <li><a href="reviews.html">Opiniones</a></li>
+		</ul>
+	  </nav>
+</head>
+<body>
+	<header class="py-4">
+		<div class="container text-center">
+			<h1>TiendatodoGo</h1>
+		</div>
+		<a href="index.html">
+			<img src="https://i.postimg.cc/D0bcNTmg/tienda-todo-go.png" alt="Logo" class="logo">
+		</a>
+		<a href="https://www.tiktok.com/@tiendatodogo?_t=ZS-8tCRC47GwwZ&_r=1" target="_blank" class="social-icon tiktok" aria-label="TikTok">
+			<i class="fab fa-tiktok"></i>
+		  </a>
+		  <a href="https://www.instagram.com/tiendatodog.col" target="_blank" class="social-icon instagram" aria-label="Instagram">
+			<i class="fab fa-instagram"></i>
+		  </a>
+	</header>
+	
+	
+
+	<!-- Icono del carrito -->
+	<div class="cart-icon" onclick="toggleCart()">
+		🛒 <span id="cart-count">0</span>
+	</div>
+
+	<!-- Contenedor del carrito -->
+	<div class="cart-container" id="cart">
+		<button class="cart-close" onclick="toggleCart()">&times;</button>
+		<h5>Carrito de Compras</h5>
+		<div id="cart-items">
+			<p>Tu carrito está vacío.</p>
+		</div>
+		<div class="cart-total">
+			Total: $<span id="cart-total">0.00</span>
+		</div>
+		<button class="btn btn-success w-100 mt-3" onclick="proceedToCheckout()">Finalizar Compra</button>
+	</div>
+
+
+	 <!-- Buscador -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar productos..." onkeyup="searchFunction()">
+    </div>
+
+	<main class="container my-4">
+			<div class="row g-4" id="productList">
+				<div class="col-md-4 product-card" data-name="Gafas Para Leer John Lennon Blue">
+					<div>
+						<img src="https://i.postimg.cc/N0LzBZz3/gafas-de-aumento.jpg" alt="Gafas Para Leer John Lennon Blue">
+						<h5>Gafas Para Leer John Lennon Blue</h5>
+						<div class="price">$40.000</div>
+						<button class="btn" onclick="addToCart('Gafas Para Leer John Lennon Blue', 40000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Gafas Para Leer John Lennon Blue', 40000)">Comprar ahora</button>
+					</div>
+				</div>
+	
+				
+				<div class="col-md-4 product-card" data-name="Combo Gafas De Sol Cartier Classy 101">
+					<div>
+						<img src="https://i.postimg.cc/vBV26fMX/Gafas-de-Sol-classy-101.png" alt="Combo Gafas De Sol Cartier Classy 101">
+						<h5>Combo Gafas De Sol Cartier Classy 101</h5>
+						<div class="price">$63.000</div>
+						<button class="btn" onclick="addToCart('Combo Gafas De Sol Cartier Classy 101', 63000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Combo Gafas De Sol Cartier Classy 101', 63000)">Comprar ahora</button>
+					</div>
+				</div>
+	
+				
+				<div class="col-md-4 product-card" data-name="Perfume One Million De Paco Rabanne">
+					<div>
+						<img src="https://i.postimg.cc/XqK2sWrC/1-million-parfum.webp" alt="Perfume One Million De Paco Rabanne">
+						<h5>Perfume One Million De Paco Rabanne</h5>
+						<div class="price">$74.999</div>
+						<button class="btn" onclick="addToCart('Perfume One Million De Paco Rabanne', 74999)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Perfume One Million De Paco Rabanne', 74999)">Comprar ahora</button>
+					</div>
+				</div>
+	
+				<!-- Producto Perfume Mujer Moschino Toy 2 Bubble Gum -->
+				<div class="col-md-4 product-card" data-name="Perfume Mujer Moschino Toy 2 Bubble Gum">
+					<div>
+						<img src="https://i.postimg.cc/PrhVPC7z/perfume-mujer-Moschino-Toy-2.jpg" alt="Perfume Mujer Moschino Toy 2 Bubble Gum">
+						<h5>Perfume Mujer Moschino Toy 2 Bubble Gum</h5>
+						<div class="price">$130.000</div>
+						<button class="btn" onclick="addToCart('Perfume Mujer Moschino Toy 2 Bubble Gum', 130000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Perfume Mujer Moschino Toy 2 Bubble Gum', 130000)">Comprar ahora</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+    <footer>
+        <p>&copy; 2025 TiendatodoGo</p>
+      </footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TiendatodoGo</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script src="./script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<nav>
+		<ul>
+		  <li><a href="index.html">Inicio</a></li>
+		  <li><a href="Salud.html">Salud</a></li>
+		  <li><a href="tecnologia.html">Tecnologia</a></li>
+          <li><a href="belleza.html">Belleza</a></li>
+		  <li><a href="reviews.html">Opiniones</a></li>
+		</ul>
+	  </nav>
+</head>
+<body>
+	<header class="py-4">
+		<div class="container text-center">
+			<h1>TiendatodoGo</h1>
+		</div>
+		<a href="index.html">
+			<img src="https://i.postimg.cc/D0bcNTmg/tienda-todo-go.png" alt="Logo" class="logo">
+		</a>
+		<a href="https://www.tiktok.com/@tiendatodogo?_t=ZS-8tCRC47GwwZ&_r=1" target="_blank" class="social-icon tiktok" aria-label="TikTok">
+			<i class="fab fa-tiktok"></i>
+		  </a>
+		  <a href="https://www.instagram.com/tiendatodog.col" target="_blank" class="social-icon instagram" aria-label="Instagram">
+			<i class="fab fa-instagram"></i>
+		  </a>
+	</header>
+	
+	
+
+	<!-- Icono del carrito -->
+	<div class="cart-icon" onclick="toggleCart()">
+		🛒 <span id="cart-count">0</span>
+	</div>
+
+	<!-- Contenedor del carrito -->
+	<div class="cart-container" id="cart">
+		<button class="cart-close" onclick="toggleCart()">&times;</button>
+		<h5>Carrito de Compras</h5>
+		<div id="cart-items">
+			<p>Tu carrito está vacío.</p>
+		</div>
+		<div class="cart-total">
+			Total: $<span id="cart-total">0.00</span>
+		</div>
+		<button class="btn btn-success w-100 mt-3" onclick="proceedToCheckout()">Finalizar Compra</button>
+	</div>
+
+
+	 <!-- Buscador -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar productos..." onkeyup="searchFunction()">
+    </div>
+
+	<main class="container my-4">
+			<div class="row g-4" id="productList">
+				<div class="col-md-4 product-card" data-name="Reloj Inteligente Smartwatch T500 Ultra">
+					<div>
+						<img src="https://i.postimg.cc/Kz6V9QQd/reloj-t500-samrtwatch.jpg" alt="Reloj Inteligente T500 Ultra">
+						<h5>Reloj Inteligente Smartwatch T500 Ultra</h5>
+						<div class="price">$65.000</div>
+						<button class="btn" onclick="addToCart('Reloj Inteligente Smartwatch T500 Ultra', 65000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Reloj Inteligente Smartwatch T500 Ultra', 65000)">Comprar ahora</button>
+					</div>
+				</div>
+	
+				<!-- Producto Mini Wafflera -->
+				<div class="col-md-4 product-card" data-name="Mini Wafflera">
+					<div>
+						<img src="https://i.postimg.cc/gj371RTr/mini-wafflera.jpg" alt="Mini Wafflera">
+						<h5>Mini Wafflera</h5>
+						<div class="price">$62.000</div>
+						<button class="btn" onclick="addToCart('Mini Wafflera', 62000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Mini Wafflera', 62000)">Comprar ahora</button>
+					</div>
+				</div>
+
+	
+				<!-- Producto Airpods Pro 2 -->
+				<div class="col-md-4 product-card" data-name="Airpods-pro-2">
+					<div>
+						<img src="https://i.postimg.cc/m2YDy58W/Airpods-pro-2.jpg" alt="Airpods Pro 2">
+						<h5>Airpods Pro 2</h5>
+						<div class="price">$92.000</div>
+						<button class="btn" onclick="addToCart('Airpods-pro-2', 92000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Airpods-pro-2', 92000)">Comprar ahora</button>
+					</div>
+				</div>
+	
+				<!-- Producto Maquina de Boxeo -->
+				<div class="col-md-4 product-card" data-name="Maquina de Boxeo">
+					<div>
+						<img src="https://i.postimg.cc/KcdkNLbB/Maquina-de-boxeo.jpg" alt="Maquina de Boxeo">
+						<h5>Maquina de Boxeo</h5>
+						<div class="price">$157.000</div>
+						<button class="btn" onclick="addToCart('Maquina de Boxeo', 157000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Maquina de Boxeo', 157000)">Comprar ahora</button>
+					</div>
+				</div>
+
+				<div class="col-md-4 product-card" data-name="Audifonos M28 Tws 53 Gamer">
+					<div>
+						<img src="https://i.postimg.cc/gcRkG79L/Auriculares-Bluettoh.jpg" alt="Audifonos M28 Tws 53 Gamer">
+						<h5>Audifonos M28 Tws 53 Gamer</h5>
+						<div class="price">$62.900</div>
+						<button class="btn" onclick="addToCart('Audifonos M28 Tws 53 Gamer', 62900)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Audifonos M28 Tws 53 Gamer', 62900)">Comprar ahora</button>
+					</div>
+				</div>
+				
+				<div class="col-md-4 product-card" data-name="Proyector Hy300 Full Hd Android Control">
+					<div>
+						<img src="https://i.postimg.cc/wBMHsf1z/Proyector-Hy300-Full-Hd-Android-Control.jpg" alt="Proyector Hy300 Full Hd Android Control">	
+						<h5>Proyector Hy300 Full Hd Android Control</h5>
+						<div class="price">$230.000</div>
+						<button class="btn" onclick="addToCart('Proyector Hy300 Full Hd Android Control', 230000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Proyector Hy300 Full Hd Android Control', 230000)">Comprar ahora</button>
+					</div>
+				</div>
+
+				
+			</div>
+		</div>
+	</main>
+    <footer>
+        <p>&copy; 2025 TiendatodoGo</p>
+      </footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
