@@ -1,0 +1,125 @@
+/* Fondo general con un gradiente */
+body {
+    background: linear-gradient(135deg, #ff7f50, #ff1493); /* Gradiente de naranja y rosa */
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo general para el contenedor */
+.container {
+    max-width: 500px; /* Reducir el ancho del contenedor */
+    margin: 50px auto;
+    background-color: #fff5e1; /* Fondo suave, color pastel claro */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el mensaje flotante */
+#floating-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff4081; /* Color vibrante (rosa) */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: moveMessage 3s ease-in-out infinite;
+}
+
+/* Animación para el mensaje flotante */
+@keyframes moveMessage {
+    0% { top: 20px; }
+    50% { top: 30px; }
+    100% { top: 20px; }
+}
+
+/* Encabezados */
+h1, h5 {
+    color: #ff1493; /* Color rosa fuerte para los títulos */
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Estilo para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Campos del formulario */
+input, select, textarea {
+    background-color: #fff; /* Fondo blanco para los campos */
+    color: #333; /* Texto oscuro */
+    border: 2px solid #ff4081; /* Borde rosa para los campos */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #ff1493; /* Borde rosa fuerte cuando se selecciona */
+}
+
+/* Labels */
+label {
+    color: #ff1493; /* Color rosa para los labels */
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Estilo para el botón */
+button {
+    background-color: #ff1493; /* Rosa fuerte */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Espacio superior para separación */
+}
+
+button:hover {
+    background-color: #d5006e; /* Rosa más oscuro en hover */
+}
+
+/* Estilo para el resumen del pedido */
+h5 {
+    color: #ff1493; /* Color rosa para el título del resumen */
+}
+
+#order-summary {
+    background-color: #fff; /* Fondo blanco para el resumen */
+    border-radius: 10px;
+    padding: 10px;
+    list-style-type: none;
+    color: #333; /* Texto oscuro */
+    margin-bottom: 20px;
+}
+
+#order-summary li {
+    padding: 10px;
+    border-bottom: 1px solid #ff4081; /* Borde rosa entre los productos */
+}
+
+#order-summary li:last-child {
+    border-bottom: none;
+}
+
+/* Efecto en los campos del formulario */
+input:focus, select:focus, textarea:focus {
+    border-color: #ff1493; /* Cambio de borde en campos seleccionados */
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.6); /* Sombra rosa */
+}

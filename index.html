@@ -8,30 +8,35 @@
 	<link rel="stylesheet" href="styles.css">
 	<script src="./script.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-	<nav>
-		<ul>
-		  <li><a href="index.html">Inicio</a></li>
-		  <li><a href="Salud.html">Salud</a></li>
-		  <li><a href="tecnologia.html">Tecnologia</a></li>
-		  <li><a href="belleza.html">Belleza</a></li>
-		  <li><a href="reviews.html">Opiniones</a></li>
-		</ul>
-	  </nav>
+	
 </head>
 <body>
 	<header class="py-4">
-		<div class="container text-center">
+        <nav class='navbar'>
+            <a href="index.html">
+                <img src="https://i.postimg.cc/ZKJL1SmK/tienda-todo-go.png" alt="Logo TiendatodoGo" class="logo">
+            </a>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Salud.html">Salud</a></li>
+                <li><a href="tecnologia.html">Tecnologia</a></li>
+                <li><a href="belleza.html">Belleza</a></li>
+                <li><a href="reviews.html">Opiniones</a></li>
+            </ul>
+            <div>
+                
+                <a href="https://www.tiktok.com/@tiendatodogo?_t=ZS-8tCRC47GwwZ&_r=1" target="_blank" class="social-icon tiktok" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.instagram.com/tiendatodog.col" target="_blank" class="social-icon instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </nav>
+		<div class="container title text-center">
 			<h1>TiendatodoGo</h1>
 		</div>
-		<a href="index.html">
-			<img src="https://i.postimg.cc/D0bcNTmg/tienda-todo-go.png" alt="Logo" class="logo">
-		</a>
-		<a href="https://www.tiktok.com/@tiendatodogo?_t=ZS-8tCRC47GwwZ&_r=1" target="_blank" class="social-icon tiktok" aria-label="TikTok">
-			<i class="fab fa-tiktok"></i>
-		  </a>
-		  <a href="https://www.instagram.com/tiendatodog.col" target="_blank" class="social-icon instagram" aria-label="Instagram">
-			<i class="fab fa-instagram"></i>
-		  </a>
+		
 	</header>
 	
 	
@@ -55,7 +60,7 @@
 	</div>
 
 
-	 <!-- Buscador -->
+	<!-- Buscador -->
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Buscar productos..." onkeyup="searchFunction()">
     </div>
