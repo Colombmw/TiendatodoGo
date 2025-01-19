@@ -15,10 +15,27 @@ body {
     padding: 0;
 }
 
+/* Evitar ampliación en dispositivos móviles */
+html {
+    touch-action: manipulation;
+    overscroll-behavior: contain;
+}
+
+@media (max-width: 768px) {
+    body {
+        user-select: none;
+        -webkit-user-select: none;
+    }
+}
+
+meta[name="viewport"] {
+    content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no";
+}
+
 /* Estilos de encabezado */
 header {
-    background-color: #000;
-    color: #e5e5e5;
+    background-color: #000; /* Fondo oscuro */
+    color: #e5e5e5; /* Texto claro */
     padding: 20px 0;
     text-align: center;
 }
@@ -28,6 +45,7 @@ header h1 {
     font-size: 2.5rem;
     font-weight: bold;
     letter-spacing: 2px;
+    color: #fff; /* Título blanco */
 }
 
 /* Icono del carrito */
@@ -36,7 +54,7 @@ header h1 {
     top: 20px;
     right: 20px;
     background-color: #333; /* Fondo oscuro */
-    color: #e5e5e5;
+    color: #e5e5e5; /* Texto claro */
     font-size: 1.5rem;
     padding: 10px;
     border-radius: 50%;
@@ -45,38 +63,40 @@ header h1 {
 }
 
 .cart-icon:hover {
-    background-color: #444;
+    background-color: #444; /* Hover más claro */
 }
 
 .cart-icon span {
     font-weight: bold;
 }
 
-/* Estilos del carrito */
+/* Contenedor del carrito */
 .cart-container {
     position: fixed;
-    right: 0;
     top: 0;
+    right: 0;
     width: 300px;
-    background-color: #2a2a2a;
-    border-left: 2px solid #444;
+    height: 100%;
+    background-color: #2a2a2a; /* Fondo oscuro */
     padding: 20px;
+    border-left: 2px solid #444; /* Borde oscuro */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
     display: none;
-    z-index: 999;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    overflow-y: auto; /* Desplazable */
 }
 
 .cart-container h5 {
-    margin-top: 0;
-    color: #fff;
+    margin: 0 0 20px 0;
     font-size: 1.5rem;
+    color: #fff; /* Texto blanco */
 }
 
 .cart-total {
     font-size: 1.2rem;
-    margin-top: 20px;
     font-weight: bold;
     color: #ff4081; /* Color de acento */
+    margin-top: 20px;
 }
 
 .cart-container button {
@@ -90,31 +110,27 @@ header h1 {
 }
 
 .cart-container button:hover {
-    background-color: #e5006e; /* Tono más oscuro */
+    background-color: #e5006e; /* Hover más oscuro */
 }
 
-/* Ajuste para las tarjetas de productos */
-
+/* Tarjetas de productos */
 .product-card {
-    background-color: #2a2a2a;  /* Fondo oscuro para las tarjetas */
+    background-color: #333; /* Fondo oscuro de las tarjetas */
+    border: 1px solid #444; /* Borde oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
     max-width: 350px;
     width: 100%;
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 8px;  /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra para dar profundidad */
 }
-
 
 .product-card img {
     width: 100%;
-    height: 150px; /* Ajustamos la altura para que las imágenes se vean completas */
-    object-fit: contain; /* Mantiene la imagen completa sin recortarla */
+    height: 150px;
+    object-fit: contain;
     border-radius: 8px;
     margin-bottom: 15px;
 }
@@ -122,25 +138,22 @@ header h1 {
 .product-card h5 {
     font-size: 1.1rem;
     margin: 15px 0;
+    color: #e5e5e5; /* Texto claro */
     text-align: center;
-    line-height: 1.4; /* Ajustamos la altura de línea para que no ocupe demasiado espacio */
-    overflow: hidden; /* Evita que el texto se desborde */
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-    text-overflow: ellipsis; /* Muestra puntos suspensivos si el texto es demasiado largo */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
-
-
 
 .product-card .price {
     font-size: 1.2rem;
-    margin: 10px 0;
     font-weight: bold;
+    color: #fff; /* Texto blanco */
     text-align: center;
 }
 
-
 .product-card button {
-    background-color: #ff4081;
+    background-color: #ff4081; /* Botón de acento */
     color: white;
     border: none;
     padding: 12px;
@@ -148,47 +161,18 @@ header h1 {
     border-radius: 5px;
     margin-top: 10px;
     cursor: pointer;
-    font-size: 1rem;
-    display: block;
-    margin-bottom: 10px;
 }
 
 .product-card button:hover {
-    background-color: #e5006e;
+    background-color: #e5006e; /* Hover más oscuro */
 }
 
-/* Grid de productos: 3 productos por fila en cualquier dispositivo */
-.row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 productos por fila */
-    gap: 20px;
-    justify-items: center;
-    padding: 20px 0;
-}
-
-/* Ajustes en móviles */
-@media (max-width: 768px) {
-    .row {
-        grid-template-columns: repeat(3, 1fr); /* 3 productos por fila */
-    }
-}
-
-@media (max-width: 576px) {
-    .row {
-        grid-template-columns: repeat(3, 1fr); /* 3 productos por fila */
-    }
-
-    .product-card {
-        width: 100%;
-    }
-}
-
-/* Estilos para la sección de productos */
+/* Sección de productos */
 .section-title {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #fff;
-    font-weight: bold;
+    color: #fff; /* Título blanco */
+    text-align: center;
 }
 
 /* Buscador */
@@ -214,35 +198,27 @@ header h1 {
     border-color: #ff4081;
 }
 
-.logo {
-    width: 150px;  /* Ajusta el tamaño del logo */
-    height: auto;
-    margin-bottom: 15px;  /* Espacio entre el logo y el título */
+/* Grid de productos */
+.row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 productos por fila */
+    gap: 20px;
+    justify-items: center;
+    padding: 20px 0;
 }
 
-
-
-.cart-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    background-color: #121212;
-    padding: 20px;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: none;
-    overflow-y: auto; /* Agrega este para hacer el carrito desplazable */
+/* Ajustes para dispositivos pequeños */
+@media (max-width: 768px) {
+    .row {
+        grid-template-columns: repeat(2, 1fr); /* 2 productos por fila */
+    }
 }
 
-.cart-container #cart-items {
-    max-height: calc(100vh - 150px); /* Limita la altura del carrito para que no se desborde */
-    overflow-y: auto; /* Hace que solo el contenido del carrito sea desplazable */
+@media (max-width: 576px) {
+    .row {
+        grid-template-columns: 2fr; /* 1 producto por fila */
+    }
 }
-
-
-
 
 	</style>
 </head>
