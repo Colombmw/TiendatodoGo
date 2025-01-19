@@ -6,215 +6,244 @@
 	<title>TiendatodoGo</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<style>
-		/* Estilos generales */
-		body {
-		    font-family: 'Arial', sans-serif;
-		    background-color: #121212; /* Fondo oscuro tipo Netflix */
-		    color: #e5e5e5; /* Texto claro */
-		    margin: 0;
-		    padding: 0;
-		}
-		
-		/* Estilos de encabezado */
-		header {
-		    background-color: #000;
-		    color: #e5e5e5;
-		    padding: 20px 0;
-		    text-align: center;
-		}
-		
-		header h1 {
-		    margin: 0;
-		    font-size: 2.5rem;
-		    font-weight: bold;
-		    letter-spacing: 2px;
-		}
-		
-		/* Icono del carrito */
-		.cart-icon {
-		    position: fixed;
-		    top: 20px;
-		    right: 20px;
-		    background-color: #333; /* Fondo oscuro */
-		    color: #e5e5e5;
-		    font-size: 1.5rem;
-		    padding: 10px;
-		    border-radius: 50%;
-		    cursor: pointer;
-		    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-		}
-		
-		.cart-icon:hover {
-		    background-color: #444;
-		}
-		
-		.cart-icon span {
-		    font-weight: bold;
-		}
-		
-		/* Estilos del carrito */
-		.cart-container {
-		    position: fixed;
-		    right: 0;
-		    top: 0;
-		    width: 300px;
-		    background-color: #2a2a2a;
-		    border-left: 2px solid #444;
-		    padding: 20px;
-		    display: none;
-		    z-index: 999;
-		    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-		}
-		
-		.cart-container h5 {
-		    margin-top: 0;
-		    color: #fff;
-		    font-size: 1.5rem;
-		}
-		
-		.cart-total {
-		    font-size: 1.2rem;
-		    margin-top: 20px;
-		    font-weight: bold;
-		    color: #ff4081; /* Color de acento */
-		}
-		
-		.cart-container button {
-		    background-color: #ff4081; /* Color de acento */
-		    color: white;
-		    border: none;
-		    padding: 10px;
-		    width: 100%;
-		    cursor: pointer;
-		    border-radius: 5px;
-		}
-		
-		.cart-container button:hover {
-		    background-color: #e5006e; /* Tono más oscuro */
-		}
-		
-		/* Ajustar tamaño de las tarjetas de producto */
-		.product-card {
-		    background-color: #333;
-		    border: 1px solid #444;
-		    border-radius: 8px;
-		    padding: 10px; /* Reducido */
-		    text-align: center;
-		    transition: transform 0.3s, box-shadow 0.3s;
-		    width: 100%;
-		    max-width: 250px; /* Tamaño máximo más pequeño */
-		    margin: 0 auto;
-		}
-		
-		.product-card img {
-		    width: 100%; /* Se adapta al tamaño del contenedor */
-		    height: auto; /* Mantiene la proporción */
-		    border-radius: 8px;
-		    transition: transform 0.3s;
-		}
-		
-		/* Ajustes para los textos */
-		.product-card h5 {
-		    font-size: 1rem; /* Tamaño más pequeño */
-		    margin: 10px 0; /* Reducido */
-		}
-		
-		.product-card .price {
-		    font-size: 1.2rem; /* Más compacto */
-		    margin: 5px 0; /* Reducido */
-		}
-		
-		/* Botones: Sin cambios en los colores */
-		.product-card button {
-		    background-color: #ff4081;
-		    color: white;
-		    border: none;
-		    padding: 8px;
-		    width: 100%;
-		    border-radius: 5px;
-		    margin-top: 10px;
-		    cursor: pointer;
-		}
-		.product-card button:hover {
-		    background-color: #e5006e;
-		}
-		
-		/* Reducción de márgenes entre columnas */
-		.row {
-		    gap: 15px; /* Más compacto */
-		    justify-content: center;
-		}
-		
-		/* Ajustes para pantallas pequeñas */
-		@media (max-width: 768px) {
-		    .col-md-4 {
-		        flex: 0 0 45%; /* Mejor uso del espacio */
-		        max-width: 45%;
-		    }
-		}
-		
-		@media (max-width: 576px) {
-		    .col-md-4 {
-		        flex: 0 0 90%; /* Ocupa casi todo el ancho en móviles */
-		        max-width: 90%;
-		    }
-		}
-		
-		
-		/* Ajustes para pantallas pequeñas */
-		@media (max-width: 768px) {
-		    .col-md-4 {
-		        flex: 0 0 45%; /* Mejor uso del espacio */
-		        max-width: 45%;
-		    }
-		}
-		
-		@media (max-width: 576px) {
-		    .col-md-4 {
-		        flex: 0 0 90%; /* Ocupa casi todo el ancho en móviles */
-		        max-width: 90%;
-		    }
-		}
-		
-		
-		/* Estilos para la sección de productos */
-		.section-title {
-		    font-size: 2rem;
-		    margin-bottom: 20px;
-		    color: #fff;
-		    font-weight: bold;
-		}
-		
-		/* Grid de productos */
-		.row {
-		    display: flex;
-		    flex-wrap: wrap;
-		    gap: 20px;
-		    justify-content: center;
-		}
-		
-		.col-md-4 {
-		    flex: 0 0 32%;
-		    max-width: 32%;
-		}
-		
-		@media (max-width: 768px) {
-		    .col-md-4 {
-		        flex: 0 0 48%;
-		        max-width: 48%;
-		    }
-		}
-		
-		@media (max-width: 576px) {
-		    .col-md-4 {
-		        flex: 0 0 100%;
-		        max-width: 100%;
-		    }
-		}
-		
-		
-		
-		
+	/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Fondo oscuro tipo Netflix */
+    color: #e5e5e5; /* Texto claro */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos de encabezado */
+header {
+    background-color: #000;
+    color: #e5e5e5;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Icono del carrito */
+.cart-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #333; /* Fondo oscuro */
+    color: #e5e5e5;
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.cart-icon:hover {
+    background-color: #444;
+}
+
+.cart-icon span {
+    font-weight: bold;
+}
+
+/* Estilos del carrito */
+.cart-container {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    background-color: #2a2a2a;
+    border-left: 2px solid #444;
+    padding: 20px;
+    display: none;
+    z-index: 999;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.cart-container h5 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.cart-total {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #ff4081; /* Color de acento */
+}
+
+.cart-container button {
+    background-color: #ff4081; /* Color de acento */
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cart-container button:hover {
+    background-color: #e5006e; /* Tono más oscuro */
+}
+
+/* Ajuste para las tarjetas de productos */
+
+.product-card {
+    background-color: #2a2a2a;  /* Fondo oscuro para las tarjetas */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 350px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;  /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra para dar profundidad */
+}
+
+
+.product-card img {
+    width: 100%;
+    height: 150px; /* Ajustamos la altura para que las imágenes se vean completas */
+    object-fit: contain; /* Mantiene la imagen completa sin recortarla */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-card h5 {
+    font-size: 1.1rem;
+    margin: 15px 0;
+    text-align: center;
+    line-height: 1.4; /* Ajustamos la altura de línea para que no ocupe demasiado espacio */
+    overflow: hidden; /* Evita que el texto se desborde */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos si el texto es demasiado largo */
+}
+
+
+
+.product-card .price {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.product-card button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product-card button:hover {
+    background-color: #e5006e;
+}
+
+/* Grid de productos: 3 productos por fila en cualquier dispositivo */
+.row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 productos por fila */
+    gap: 20px;
+    justify-items: center;
+    padding: 20px 0;
+}
+
+/* Ajustes en móviles */
+@media (max-width: 768px) {
+    .row {
+        grid-template-columns: repeat(3, 1fr); /* 3 productos por fila */
+    }
+}
+
+@media (max-width: 576px) {
+    .row {
+        grid-template-columns: repeat(3, 1fr); /* 3 productos por fila */
+    }
+
+    .product-card {
+        width: 100%;
+    }
+}
+
+/* Estilos para la sección de productos */
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Buscador */
+.search-container {
+    margin: 20px auto;
+    max-width: 500px;
+    padding: 5px;
+    text-align: center;
+}
+
+.search-container input {
+    width: 80%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #e5e5e5;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #ff4081;
+}
+
+.logo {
+    width: 150px;  /* Ajusta el tamaño del logo */
+    height: auto;
+    margin-bottom: 15px;  /* Espacio entre el logo y el título */
+}
+
+
+
+.cart-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #121212;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+    overflow-y: auto; /* Agrega este para hacer el carrito desplazable */
+}
+
+.cart-container #cart-items {
+    max-height: calc(100vh - 150px); /* Limita la altura del carrito para que no se desborde */
+    overflow-y: auto; /* Hace que solo el contenido del carrito sea desplazable */
+}
+
+
+
+
 	</style>
 </head>
 <body>
@@ -222,7 +251,12 @@
 		<div class="container text-center">
 			<h1>TiendatodoGo</h1>
 		</div>
+		<a href="index.html">
+			<img src="https://i.postimg.cc/D0bcNTmg/tienda-todo-go.png" alt="Logo" class="logo">
+		</a>
 	</header>
+	
+	
 
 	<!-- Icono del carrito -->
 	<div class="cart-icon" onclick="toggleCart()">
@@ -242,14 +276,20 @@
 		<button class="btn btn-success w-100 mt-3" onclick="proceedToCheckout()">Finalizar Compra</button>
 	</div>
 
+
+	 <!-- Buscador -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar productos..." onkeyup="searchFunction()">
+    </div>
+
 	<main class="container my-4">
 		<!-- Sección Salud -->
 		<div>
 			<h2 class="section-title">Salud</h2>
-			<div class="row g-4">
+			<div class="row g-4" id="productList">
 				<!-- Producto Creatina Monohidratada -->
-				<div class="col-md-4">
-					<div class="product-card">
+				<div class="col-md-4 product-card" data-name="Creatina Monohidratada">
+					<div>
 						<img src="https://i.postimg.cc/zvX36XyZ/producto-Creatina-mono1.jpg" alt="Creatina Monohidratada">
 						<h5>Creatina Monohidratada</h5>
 						<div class="price">$107.000</div>
@@ -257,10 +297,10 @@
 						<button class="btn btn-success mt-2" onclick="buyNow('Creatina Monohidratada', 107000)">Comprar ahora</button>
 					</div>
 				</div>
-
-				<!-- Otros productos -->
-				<div class="col-md-4">
-					<div class="product-card">
+	
+				<!-- Producto Mini masajeador -->
+				<div class="col-md-4 product-card" data-name="Mini masajeador">
+					<div>
 						<img src="https://i.postimg.cc/BZkGdnLT/Mini-masajeador.png" alt="Masajeador Electrico">
 						<h5>Mini masajeador</h5>
 						<div class="price">$35.000</div>
@@ -268,9 +308,10 @@
 						<button class="btn btn-success mt-2" onclick="buyNow('Mini masajeador', 35000)">Comprar ahora</button>
 					</div>
 				</div>
-				<!-- Nuevos productos añadidos -->
-				<div class="col-md-4">
-					<div class="product-card">
+	
+				<!-- Producto Reloj Inteligente Smartwatch T500 Ultra -->
+				<div class="col-md-4 product-card" data-name="Reloj Inteligente Smartwatch T500 Ultra">
+					<div>
 						<img src="https://i.postimg.cc/Kz6V9QQd/reloj-t500-samrtwatch.jpg" alt="Reloj Inteligente T500 Ultra">
 						<h5>Reloj Inteligente Smartwatch T500 Ultra</h5>
 						<div class="price">$65.000</div>
@@ -278,8 +319,10 @@
 						<button class="btn btn-success mt-2" onclick="buyNow('Reloj Inteligente Smartwatch T500 Ultra', 65000)">Comprar ahora</button>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="product-card">
+	
+				<!-- Producto Mini Wafflera -->
+				<div class="col-md-4 product-card" data-name="Mini Wafflera">
+					<div>
 						<img src="https://i.postimg.cc/gj371RTr/mini-wafflera.jpg" alt="Mini Wafflera">
 						<h5>Mini Wafflera</h5>
 						<div class="price">$62.000</div>
@@ -287,9 +330,10 @@
 						<button class="btn btn-success mt-2" onclick="buyNow('Mini Wafflera', 62000)">Comprar ahora</button>
 					</div>
 				</div>
-
-				<div class="col-md-4">
-					<div class="product-card">
+	
+				<!-- Producto Gafas Para Leer John Lennon Blue -->
+				<div class="col-md-4 product-card" data-name="Gafas Para Leer John Lennon Blue">
+					<div>
 						<img src="https://i.postimg.cc/N0LzBZz3/gafas-de-aumento.jpg" alt="Gafas Para Leer John Lennon Blue">
 						<h5>Gafas Para Leer John Lennon Blue</h5>
 						<div class="price">$40.000</div>
@@ -297,9 +341,10 @@
 						<button class="btn btn-success mt-2" onclick="buyNow('Gafas Para Leer John Lennon Blue', 40000)">Comprar ahora</button>
 					</div>
 				</div>
-
-				<div class="col-md-4">
-					<div class="product-card">
+	
+				<!-- Producto Combo Gafas De Sol Cartier Classy 101 -->
+				<div class="col-md-4 product-card" data-name="Combo Gafas De Sol Cartier Classy 101">
+					<div>
 						<img src="https://i.postimg.cc/vBV26fMX/Gafas-de-Sol-classy-101.png" alt="Combo Gafas De Sol Cartier Classy 101">
 						<h5>Combo Gafas De Sol Cartier Classy 101</h5>
 						<div class="price">$63.000</div>
@@ -307,9 +352,10 @@
 						<button class="btn btn-success mt-2" onclick="buyNow('Combo Gafas De Sol Cartier Classy 101', 63000)">Comprar ahora</button>
 					</div>
 				</div>
-
-				<div class="col-md-4">
-					<div class="product-card">
+	
+				<!-- Producto Perfume One Million De Paco Rabanne -->
+				<div class="col-md-4 product-card" data-name="Perfume One Million De Paco Rabanne">
+					<div>
 						<img src="https://i.postimg.cc/XqK2sWrC/1-million-parfum.webp" alt="Perfume One Million De Paco Rabanne">
 						<h5>Perfume One Million De Paco Rabanne</h5>
 						<div class="price">$74.999</div>
@@ -317,9 +363,10 @@
 						<button class="btn btn-success mt-2" onclick="buyNow('Perfume One Million De Paco Rabanne', 74999)">Comprar ahora</button>
 					</div>
 				</div>
-
-				<div class="col-md-4">
-					<div class="product-card">
+	
+				<!-- Producto Perfume Mujer Moschino Toy 2 Bubble Gum -->
+				<div class="col-md-4 product-card" data-name="Perfume Mujer Moschino Toy 2 Bubble Gum">
+					<div>
 						<img src="https://i.postimg.cc/PrhVPC7z/perfume-mujer-Moschino-Toy-2.jpg" alt="Perfume Mujer Moschino Toy 2 Bubble Gum">
 						<h5>Perfume Mujer Moschino Toy 2 Bubble Gum</h5>
 						<div class="price">$130.000</div>
@@ -327,19 +374,21 @@
 						<button class="btn btn-success mt-2" onclick="buyNow('Perfume Mujer Moschino Toy 2 Bubble Gum', 130000)">Comprar ahora</button>
 					</div>
 				</div>
-
-				<div class="col-md-4">
-					<div class="product-card">
-						<img src="https://i.postimg.cc/m2YDy58W/Airpods-pro-2.jpg" alt="Audifonos M28 Tws 53 Gamer">
-						<h5>Audifonos M28 Tws 53 Gamer</h5>
-						<div class="price">$62.900</div>
-						<button class="btn" onclick="addToCart('Audifonos M28 Tws 53 Gamer', 62900)">Añadir al carrito</button>
-						<button class="btn btn-success mt-2" onclick="buyNow('Audifonos M28 Tws 53 Gamer', 62900)">Comprar ahora</button>
+	
+				<!-- Producto Airpods Pro 2 -->
+				<div class="col-md-4 product-card" data-name="Airpods-pro-2">
+					<div>
+						<img src="https://i.postimg.cc/m2YDy58W/Airpods-pro-2.jpg" alt="Airpods Pro 2">
+						<h5>Airpods Pro 2</h5>
+						<div class="price">$92.000</div>
+						<button class="btn" onclick="addToCart('Airpods-pro-2', 92000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Airpods-pro-2', 92000)">Comprar ahora</button>
 					</div>
 				</div>
-
-				<div class="col-md-4">
-					<div class="product-card">
+	
+				<!-- Producto Maquina de Boxeo -->
+				<div class="col-md-4 product-card" data-name="Maquina de Boxeo">
+					<div>
 						<img src="https://i.postimg.cc/KcdkNLbB/Maquina-de-boxeo.jpg" alt="Maquina de Boxeo">
 						<h5>Maquina de Boxeo</h5>
 						<div class="price">$157.000</div>
@@ -347,9 +396,10 @@
 						<button class="btn btn-success mt-2" onclick="buyNow('Maquina de Boxeo', 157000)">Comprar ahora</button>
 					</div>
 				</div>
-
-				<div class="col-md-4">
-					<div class="product-card">
+	
+				<!-- Producto Tabla Push Up Sistema Flexiones Ejercicio -->
+				<div class="col-md-4 product-card" data-name="Tabla Push Up Sistema Flexiones Ejercicio">
+					<div>
 						<img src="https://i.postimg.cc/q75M7VMy/Tabla-Push-Up.webp" alt="Tabla Push Up Sistema Flexiones Ejercicio">
 						<h5>Tabla Push Up Sistema Flexiones Ejercicio</h5>
 						<div class="price">$69.900</div>
@@ -357,8 +407,9 @@
 						<button class="btn btn-success mt-2" onclick="buyNow('Tabla Push Up Sistema Flexiones Ejercicio', 69900)">Comprar ahora</button>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="product-card">
+
+				<div class="col-md-4 product-card" data-name="Audifonos M28 Tws 53 Gamer">
+					<div>
 						<img src="https://i.postimg.cc/gcRkG79L/Auriculares-Bluettoh.jpg" alt="Audifonos M28 Tws 53 Gamer">
 						<h5>Audifonos M28 Tws 53 Gamer</h5>
 						<div class="price">$62.900</div>
@@ -366,13 +417,15 @@
 						<button class="btn btn-success mt-2" onclick="buyNow('Audifonos M28 Tws 53 Gamer', 62900)">Comprar ahora</button>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="product-card">
-							<img src="https://i.postimg.cc/BQ0ZbCsY/totto-maleta-trio.jpg" alt="Tabla Push Up Sistema Flexiones Ejercicio">
+				
+			
+				<div class="col-md-4 product-card" data-name="bolso totto trio">
+					<div>
+						<img src="https://i.postimg.cc/BQ0ZbCsY/totto-maleta-trio.jpg" alt="Bolso Totto Trio">
 						<h5>Bolso Totto Trio</h5>
 						<div class="price">$104.000</div>
-						<button class="btn" onclick="addToCart('Tabla Push Up Sistema Flexiones Ejercicio', 104000)">Añadir al carrito</button>
-						<button class="btn btn-success mt-2" onclick="buyNow('Tabla Push Up Sistema Flexiones Ejercicio', 104000)">Comprar ahora</button>
+						<button class="btn" onclick="addToCart('Bolso Totto Trio', 104000)">Añadir al carrito</button>
+						<button class="btn btn-success mt-2" onclick="buyNow('Bolso Totto Trio', 104000)">Comprar ahora</button>
 					</div>
 				</div>
 
@@ -476,7 +529,12 @@
 		        'Gafas Para Leer John Lennon Blue': 'https://i.postimg.cc/N0LzBZz3/gafas-de-aumento.jpg',
 		        'Combo Gafas De Sol Cartier Classy 101': 'https://i.postimg.cc/vBV26fMX/Gafas-de-Sol-classy-101.png',
 		        'Perfume One Million De Paco Rabanne': 'https://i.postimg.cc/XqK2sWrC/1-million-parfum.webp',
-		        'Perfume Mujer Moschino Toy 2 Bubble Gum': 'https://i.postimg.cc/PrhVPC7z/perfume-mujer-Moschino-Toy-2.jpg'
+		        'Perfume Mujer Moschino Toy 2 Bubble Gum': 'https://i.postimg.cc/PrhVPC7z/perfume-mujer-Moschino-Toy-2.jpg' ,
+				'Airpods-pro-2': 'https://i.postimg.cc/m2YDy58W/Airpods-pro-2.jpg',
+    'Maquina de Boxeo': 'https://i.postimg.cc/KcdkNLbB/Maquina-de-boxeo.jpg',
+    'Tabla Push Up Sistema Flexiones Ejercicio': 'https://i.postimg.cc/q75M7VMy/Tabla-Push-Up.webp',
+    'Audifonos M28 Tws 53 Gamer': 'https://i.postimg.cc/gcRkG79L/Auriculares-Bluettoh.jpg',
+    'Bolso Totto Trio': 'https://i.postimg.cc/BQ0ZbCsY/totto-maleta-trio.jpg'
 		    };
 		
 		    return productImages[productName] || ''; // Devuelve la URL de la imagen correspondiente
@@ -486,6 +544,26 @@
     addToCart(productName, price); // Añadir al carrito
     proceedToCheckout(); // Proceder al checkout
 }
+
+
+
+function searchFunction() {
+    let input = document.getElementById('searchInput').value.toLowerCase(); // Convertir entrada a minúsculas
+    let products = document.querySelectorAll('.product-card'); // Seleccionar todos los productos
+
+    products.forEach(product => {
+        // Obtener el nombre del producto desde el atributo data-name y convertirlo a minúsculas
+        let productName = product.getAttribute('data-name').toLowerCase();
+        
+        // Verificar si el nombre del producto incluye la búsqueda
+        if (productName.includes(input)) {
+            product.style.display = 'block'; // Mostrar el producto
+        } else {
+            product.style.display = 'none'; // Ocultar el producto
+        }
+    });
+}
+
 
 	</script>
 </body>
